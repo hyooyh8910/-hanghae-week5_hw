@@ -4,7 +4,7 @@ import { Navbar, Container, Nav} from "react-bootstrap";
 
 //page&img
 import "./App.css";
-import LogoImg from "./assets/leafs.jpg";
+import MainImg from "./assets/leafs.jpg";
 
 
 
@@ -37,13 +37,17 @@ function App() {
 //styled-components
 const MainPic = styled.div`
   height: 850px;
-  background-image: url(${LogoImg});
+  background-image: url(${MainImg});
   background-size: cover;
   background-position: center;
 `;
 /*
 styled-components 에 img넣는 법 
-
+1. src 폴더내 assets 폴더 생성 2. 원하는 이미지 assets 폴더 내에 위치
+3. 파일 불러오기 import LogoImg from "../assets/이미지이름.파일형식";
+적용하기 
+일단 파일을 임포트하고 import LogoImg from "./assets/leafs.jpg";
+스타일 컴포넌트 내에서 background-image: url(${LogoImg}); 로 이미지 넣을 수 ㅇ
 */
 
 
