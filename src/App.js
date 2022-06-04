@@ -1,30 +1,45 @@
 import React from "react";
 import styled from "styled-components";
-import { Navbar, Container, Nav} from "react-bootstrap";
+
+import { Route, Routes } from "react-router-dom";
 
 //page&img
 import "./App.css";
-import MainImg from "./assets/leafs.jpg";
+import Home from "./Home";
+import Login from "./Login";
+import Signin from "./Signin";
+
+
 
 
 
 //react-bootstrap 에서 가져온 Navbar
 function App() {
+  /*
+ <Route path="*" element={<div>없는 페이지입니다.돌아가</div>} />
+ 해주면 *이 설정 외의 모든 페이지 담당을 해서 404page를 만들 수 ㅇ
+ 
+ nested router 개념도 알아야 함. 라우트 안의 라우트인 것 <outlet>이랑 같이 쓰임
+ 두 페이지 동시에 보여줄 수 ㅇ
+  */
+
+
+
+
   return (
     <>
-      <br />
-      <Navbar bg="light" variant="light">
-        <Container>
-          <Navbar.Brand href="#home">HOME</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#내정보">내정보</Nav.Link>
-            <Nav.Link href="#알림">알림</Nav.Link>
-            <Nav.Link href="#회원가입">회원가입</Nav.Link>
-            <Nav.Link href="#로그인">로그인</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-      <MainPic/>
+
+      <Routes>
+        <Route path="/" element={<Home />} >
+          <Route path="login" element={<Login />} />
+          <Route path="signin" element={<Signin />} />
+        </Route>
+
+        <Route path="*" element={<div>없는 페이지입니다.돌아가</div>} />
+      </Routes>
+
+
+
     </>
    
     
@@ -33,22 +48,6 @@ function App() {
 
 
 
-
-//styled-components
-const MainPic = styled.div`
-  height: 850px;
-  background-image: url(${MainImg});
-  background-size: cover;
-  background-position: center;
-`;
-/*
-styled-components 에 img넣는 법 
-1. src 폴더내 assets 폴더 생성 2. 원하는 이미지 assets 폴더 내에 위치
-3. 파일 불러오기 import LogoImg from "../assets/이미지이름.파일형식";
-적용하기 
-일단 파일을 임포트하고 import LogoImg from "./assets/leafs.jpg";
-스타일 컴포넌트 내에서 background-image: url(${LogoImg}); 로 이미지 넣을 수 ㅇ
-*/
 
 
 
