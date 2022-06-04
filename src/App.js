@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import { auth, db } from "./shared/firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 import { Route, Routes } from "react-router-dom";
 
 //page&img
 import "./App.css";
-import Home from "./Home";
+import Header, { Header_2 } from "./Header";
 import Login from "./Login";
 import Signin from "./Signin";
+import Main from "./Main";
 
 
 
@@ -30,19 +33,24 @@ function App() {
     <>
 
       <Routes>
-        <Route path="/" element={<Home />} >
+        <Route path="/" element={<Header />} >
           <Route path="login" element={<Login />} />
           <Route path="signin" element={<Signin />} />
         </Route>
 
-        <Route path="*" element={<div>없는 페이지입니다.돌아가</div>} />
+        <Route path="/main" element={<Header_2 />} >
+          <Route path="page" element={<Main />} />
+          
+        </Route>
+
+        <Route path="*" element={<div><b>없는 페이지입니다.돌아가</b></div>} />
       </Routes>
 
 
 
     </>
-   
-    
+
+
   );
 }
 
