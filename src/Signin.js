@@ -7,6 +7,7 @@ import {
     onAuthStateChanged } from "firebase/auth";
 
 import app from "./shared/firebase"
+import "./Button.css";
 
 function Signin() {
     const id_ref = React.useRef();
@@ -31,14 +32,17 @@ function Signin() {
 
     return (
 
-        <div >
+        <div style={{
+            display: 'flex', justifyContent: 'center', alignItems: 'center',
+            width: '100%', height: '100vh', flexDirection: 'column'
+          }}>
             <h1><b>회원가입</b></h1>
             아이디 <br /> <input ref={id_ref}/><br />
             닉네임 <br /> <input ref={name_ref}/><br />
             비밀번호 <br /> <input ref={pw_ref}/><br />
             비밀번호 확인 <br />  <input ref={pw_ref}/> <br />
             <div>
-                <button onClick={signupFB}>회원가입 하기</button>
+                <button className="custom-btn btn-1" onClick={signupFB}>회원가입 하기</button>
             </div>
 
 

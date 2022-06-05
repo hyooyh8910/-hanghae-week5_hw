@@ -11,6 +11,7 @@ import Header, { Header_2 } from "./Header";
 import Login from "./Login";
 import Signin from "./Signin";
 import Main from "./Main";
+import Write from "./Write";
 
 
 
@@ -38,9 +39,9 @@ function App() {
           <Route path="signin" element={<Signin />} />
         </Route>
 
-        <Route path="/main" element={<Header_2 />} >
-          <Route path="page" element={<Main />} />
-          
+        <Route path="/2" element={<Header_2 />} >
+          <Route path="main" element={<Main />} />
+          <Route path="write" element={<Write />} />
         </Route>
 
         <Route path="*" element={<div><b>없는 페이지입니다.돌아가</b></div>} />

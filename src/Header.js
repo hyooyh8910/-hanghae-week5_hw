@@ -5,6 +5,7 @@ import { useNavigate, Outlet } from "react-router-dom";
 
 import MainImg from "./assets/leafs.jpg";
 import { useSelector } from "react-redux";
+import Write from "./Write";
 
 
 
@@ -56,10 +57,11 @@ function Header_2() {
 
       <Navbar bg="light" variant="light" sticky="top">
         <Container>
-          <Navbar.Brand onClick={() => { navigate('/main') }} ><h3><b>MAGAZINE</b></h3></Navbar.Brand>
+          <Navbar.Brand onClick={() => { navigate('/2') }} ><h3><b>MAGAZINE</b></h3></Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={() => { navigate('/signin') }}><h5>알림</h5></Nav.Link>
+            <Nav.Link onClick={() => { navigate('/2') }}><h5>알림</h5></Nav.Link>
             <Nav.Link onClick={() => { navigate('/')}} ><h5>로그아웃</h5></Nav.Link>
+            <Nav.Link onClick={() => { navigate('/2/main') }}><h5>메인페이지</h5></Nav.Link>
           </Nav>
         </Container>
       </Navbar>

@@ -24,6 +24,25 @@
   color: white;
 }
 
+h2,p {
+  border : 1px solid black;
+  width : 300px;
+  height : 70px;
+  text-align : center;
+  line-height : 70px;
+  font-size : 15px;
+  display : block;
+  margin-bottom : 15px;
+  margin-top : 15px;
+  transition : 3s;   
+}
+
+p:hover{
+  background-color : rgb(50,50,255);
+  color : white;
+  transition : 3s;  
+}
+
 .App-link {
   color: #61dafb;
 }

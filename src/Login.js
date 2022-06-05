@@ -3,6 +3,8 @@ import { auth,db } from "./shared/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getDocs, where, query, collection} from "firebase/firestore";
 
+import "./Button.css";
+
 
 
 const Login = ()=>{
@@ -28,11 +30,14 @@ const Login = ()=>{
     };
 */
     return (
-<div>
+<div style={{
+      display: 'flex', justifyContent: 'center', alignItems: 'center',
+      width: '100%', height: '100vh', flexDirection: 'column'
+    }}>
 
     아이디(이메일) <br /> <input ref={id_ref} /><br/>
     비밀번호 <br /> <input ref={pw_ref} /><br/>
-    <button >로그인</button>
+    <button className="custom-btn btn-1" >로그인</button>
 </div>
 
     )
