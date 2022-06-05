@@ -4,6 +4,9 @@ import { Navbar, Container, Nav, Alert } from "react-bootstrap";
 import { useNavigate, Outlet } from "react-router-dom";
 
 import MainImg from "./assets/leafs.jpg";
+import { useSelector } from "react-redux";
+
+
 
 function Header() {
   /*useNavigate로 멋들어진 html 태그 안에다가
@@ -11,7 +14,14 @@ function Header() {
   ? 근데 왜 이미지 파일이나 네브바에서는 안먹는지..ㅎ
   */
   const navigate = useNavigate();
+ 
 
+
+  //이렇게 해주면 Redux store에 있던 state가 남음
+  let a = useSelector((state)=>{return state})
+  console.log(a.cat.name);  
+
+ 
   return (
     <>
 
@@ -32,7 +42,10 @@ function Header() {
 
     </>
   )
+
+
 }
+
 
 function Header_2() {
 
@@ -59,8 +72,6 @@ function Header_2() {
 
 
 }
-
-
 
 
 
