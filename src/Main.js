@@ -3,6 +3,7 @@ import { Toast, Col, Row, Button } from "react-bootstrap";
 import ToastHeader from 'react-bootstrap/ToastHeader'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { styled } from "styled-components";
 
 import { Icon } from '@mui/material';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
@@ -10,24 +11,44 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 import "./App.css";
 import "./Button.css";
 
-function Main(props) {
-    const navigate = useNavigate();
+function Main() {
+  const navigate = useNavigate();
 
 
-    return (
-        <div style= {{flexDirection: 'column'}}>
-         
-            
-            <AddCircleOutlineOutlinedIcon onClick={() => {
-                 navigate('/2/write') 
-                }} fontSize="large" color="success" cursor="pointer"
-                ></AddCircleOutlineOutlinedIcon>
- 
-        </div>
-    )
-    
-  }
-  
+  return (
+    <div style={{ flexDirection: 'column' }}>
+      
+        <AddCircleOutlineOutlinedIcon onClick={() => {
+        navigate('/2/write')
+      }} fontSize="large" color="success" cursor="pointer"
+      ></AddCircleOutlineOutlinedIcon>
+
+
+     
+
+      
+
+    </div>
+  )
+
+}
+
+
+
+
+
+// const styles = StyleSheet.create({
+//   container: {
+//     padding: 20
+//   },
+//   title: {
+//     fontSize: 16,
+//     fontWeight: 'bold'
+//   },
+//   content: {
+//     fontSize: 13,
+//   }
+// });
 
 export default Main;
 

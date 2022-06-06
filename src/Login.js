@@ -3,15 +3,17 @@ import { auth,db } from "./shared/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getDocs, where, query, collection} from "firebase/firestore";
 
+
 import "./Button.css";
 
 
 
 const Login = ()=>{
+
   
-    const id_ref = React.useRef(null);
-    const pw_ref = React.useRef(null);
-  /*
+    const id_ref = React.useRef();
+    const pw_ref = React.useRef();
+  
     const loginFB = async() => {
         console.log(id_ref.current.value, pw_ref.current.value);
         const user = await signInWithEmailAndPassword(
@@ -28,7 +30,7 @@ const Login = ()=>{
             //     user_docs.forEach();
             // ));
     };
-*/
+
     return (
 <div style={{
       display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -37,7 +39,9 @@ const Login = ()=>{
 
     아이디(이메일) <br /> <input ref={id_ref} /><br/>
     비밀번호 <br /> <input ref={pw_ref} /><br/>
-    <button className="custom-btn btn-1" >로그인</button>
+     {/* onClick={() => history.push('/main')} */}
+    {/* <button  onClick={() => history.push('/main')} className="custom-btn btn-1" >로그인</button> */}
+    <button onClick={loginFB} className="custom-btn btn-1" >로그인</button>
 </div>
 
     )

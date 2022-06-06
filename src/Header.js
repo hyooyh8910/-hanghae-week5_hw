@@ -26,7 +26,7 @@ function Header() {
   return (
     <>
 
-      <Navbar bg="light" variant="light" sticky="top">
+      <Navbar bg="light" variant="light" sticky="top" alignItems= "left" justifyContent= "left">
         <Container>
           <Navbar.Brand onClick={() => { navigate('/') }} ><h3><b>MAGAZINE</b></h3></Navbar.Brand>
           <Nav className="me-auto">
