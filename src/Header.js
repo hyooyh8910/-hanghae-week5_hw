@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Navbar, Container, Nav, Alert } from "react-bootstrap";
 import { useNavigate, Outlet } from "react-router-dom";
+import { signOut } from "firebase/auth"
 
 import MainImg from "./assets/leafs.jpg";
 import { useSelector } from "react-redux";
 import Write from "./Write";
+import { auth } from "./firebase";
 
 
 
@@ -32,7 +34,7 @@ function Header() {
           <Nav className="me-auto">
             {/* <Nav.Link onClick={()=>{ navigate('/') }}>Home</Nav.Link>
               <Nav.Link href="#알림">알림</Nav.Link> */}
-            <Nav.Link onClick={() => { navigate('/signin') }}><h5>회원가입</h5></Nav.Link>
+            <Nav.Link onClick={() => {navigate('/signin')}}><h5>회원가입</h5></Nav.Link>
             <Nav.Link onClick={() => { navigate('/login') }}><h5>로그인</h5></Nav.Link>
           </Nav>
         </Container>
@@ -60,7 +62,7 @@ function Header_2() {
           <Navbar.Brand onClick={() => { navigate('/2') }} ><h3><b>MAGAZINE</b></h3></Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => { navigate('/2') }}><h5>알림</h5></Nav.Link>
-            <Nav.Link onClick={() => { navigate('/')}} ><h5>로그아웃</h5></Nav.Link>
+            <Nav.Link onClick={() => { return navigate('/') , signOut(auth)}} ><h5>로그아웃</h5></Nav.Link>
             <Nav.Link onClick={() => { navigate('/2/main') }}><h5>메인페이지</h5></Nav.Link>
           </Nav>
         </Container>

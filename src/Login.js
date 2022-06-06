@@ -1,5 +1,5 @@
 import React from "react";
-import { auth,db } from "./shared/firebase";
+import { auth,db } from "./firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getDocs, where, query, collection} from "firebase/firestore";
 
@@ -15,14 +15,30 @@ const Login = ()=>{
     const pw_ref = React.useRef();
   
     const loginFB = async() => {
-        console.log(id_ref.current.value, pw_ref.current.value);
-        const user = await signInWithEmailAndPassword(
-            auth,
-            id_ref.current.value,
-            pw_ref.current.value
-            );
+       
 
-            console.log(user);
+        signInWithEmailAndPassword(auth, id_ref.current.value, pw_ref.current.value)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                alert("로그인 성공")
+                window.location.href="/2/main"
+
+                // ...
+            })
+            .catch((error) => {
+                alert("돌아가 틀렸어")
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+        // console.(id_ref.current.value, pw_ref.current.value);
+        // const user = await signInWithEmailAndPassword(
+        //     auth,
+        //     id_ref.current.value,
+        //     pw_ref.current.value
+        //     );
+
+        //     console.log(user);
 
             // const user_docs = await getDocs(query(
             //     collection(db,"users"), where("user_id", "==", user.user.email);
