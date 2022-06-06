@@ -220,6 +220,6 @@ sketch
 ### Firebase Patch ###
 .runtimeconfig.json
 firebase.js
-.shared/
+
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,react,node
