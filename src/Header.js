@@ -1,13 +1,23 @@
 import React from "react";
-import styled from "styled-components";
-import { Navbar, Container, Nav, Alert } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { useNavigate, Outlet } from "react-router-dom";
+
 import { signOut } from "firebase/auth"
+import { auth } from "./firebase";
+
+import styled from "styled-components";
+import LoginIcon from '@mui/icons-material/Login';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
+import { Avatar } from "@mui/material";
 
 import MainImg from "./assets/leafs.jpg";
-import { useSelector } from "react-redux";
+import "./Header.css"
 import Write from "./Write";
-import { auth } from "./firebase";
+import Login from "./Login";
+
 
 
 
@@ -28,17 +38,38 @@ function Header() {
   return (
     <>
 
-      <Navbar bg="light" variant="light" sticky="top" alignItems= "left" justifyContent= "left">
+      <div className="header">
+        <div onClick={() => { navigate('/') }} className="header_left header_option--active" ><h1>
+          MAGAZINE</h1>
+          </div>
+        <div className="header_center">
+          <div className="header_option">
+            <LoginIcon 
+            onClick={() => { navigate('/login') }} fontSize="large" />
+          </div>
+          <div className="header_option">
+            <AssignmentTurnedInIcon 
+            onClick={() => {navigate('/signup')}} fontSize="large" />
+          </div>
+        </div>
+        <div className="header_right">
+          <div className="header_info">
+            <Avatar />
+            <h4>cat_sarang</h4>
+          </div>
+        </div>
+      </div>
+          
+          {/* <Navbar className="header" bg="light" variant="light" sticky="top" alignItems= "left" justifyContent= "left">
         <Container>
           <Navbar.Brand onClick={() => { navigate('/') }} ><h3><b>MAGAZINE</b></h3></Navbar.Brand>
           <Nav className="me-auto">
-            {/* <Nav.Link onClick={()=>{ navigate('/') }}>Home</Nav.Link>
-              <Nav.Link href="#알림">알림</Nav.Link> */}
+          
             <Nav.Link onClick={() => {navigate('/signin')}}><h5>회원가입</h5></Nav.Link>
             <Nav.Link onClick={() => { navigate('/login') }}><h5>로그인</h5></Nav.Link>
           </Nav>
         </Container>
-      </Navbar>
+      </Navbar> */}
       <Outlet></Outlet>
 
       <MainPic onClick={() => { navigate('/') }} />
@@ -56,8 +87,36 @@ function Header_2() {
 
   return (
     <>
+      <div className="header">
+        <div onClick={() => { navigate('/2') }} className="header_left header_option--active"><h1>
+          MAGAZINE</h1>
+        </div>
+        <div className="header_center" style={{justifyContent: "right", marginRight: "20px"}} >
+        <div className="header_option">
+            <FeedOutlinedIcon
+               onClick={() => { return navigate('/2/main')}} fontSize="large" />
+          </div>
+          <div className="header_option">
+            <AddAlertOutlinedIcon
+              onClick={() => { navigate('/2') }} fontSize="large" />
+          </div>
+          <div className="header_option">
+            <LogoutOutlinedIcon
+               onClick={() => { return navigate('/') , signOut(auth)}} fontSize="large" />
+          </div>
+        </div>
+        <div className="header_right">
+          <div className="header_info">
+            <Avatar />
+            <h4>cat_sarang</h4>
+          </div>
+        </div>
+      </div>
+        
+      <Outlet></Outlet>
 
-      <Navbar bg="light" variant="light" sticky="top">
+
+      {/* <Navbar bg="light" variant="light" sticky="top">
         <Container>
           <Navbar.Brand onClick={() => { navigate('/2') }} ><h3><b>MAGAZINE</b></h3></Navbar.Brand>
           <Nav className="me-auto">
@@ -67,7 +126,7 @@ function Header_2() {
           </Nav>
         </Container>
       </Navbar>
-      <Outlet></Outlet>
+      <Outlet></Outlet> */}
 
       {/* <MainPic onClick={() => { navigate('/') }} /> */}
 

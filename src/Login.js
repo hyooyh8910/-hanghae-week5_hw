@@ -50,9 +50,9 @@ const Login = ()=>{
     return (
 <div style={{
       display: 'flex', justifyContent: 'center', alignItems: 'center',
-      width: '100%', height: '100vh', flexDirection: 'column'
+      width: '100%', padding:'50px', flexDirection: 'column'
     }}>
-
+     <h1><b>LOG_IN</b></h1><br/>
     아이디(이메일) <br /> <input ref={id_ref} /><br/>
     비밀번호 <br /> <input ref={pw_ref} /><br/>
      {/* onClick={() => history.push('/main')} */}

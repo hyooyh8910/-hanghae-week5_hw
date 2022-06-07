@@ -5,23 +5,30 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
-import { Icon } from '@mui/material';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import { Icon, IconButton } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
-import "./App.css";
 import "./Button.css";
+import "./Main.css";
+import StoryReel from "./StoryReel";
 
 function Main() {
   const navigate = useNavigate();
 
 
   return (
-    <div style={{ flexDirection: 'column' }}>
-      
-        <AddCircleOutlineOutlinedIcon onClick={() => {
+    <div className="feed">
+      {/* storyReel */}
+      {/* MessageSender */}
+      <StoryReel/>
+
+      <IconButton style={{
+        padding: "30px", marginTop: "30px", marginLeft: "30px", marginBottom:"30px",position: "sticky" 
+        }}>
+        <AddIcon onClick={() => {
         navigate('/2/write')
-      }} fontSize="large" color="success" cursor="pointer"
-      ></AddCircleOutlineOutlinedIcon>
+      }} fontSize="large" color="success"/>
+      </IconButton>
 
 
      

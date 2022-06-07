@@ -12,10 +12,11 @@ import app from "./firebase"
 import "./Button.css";
 
 
-function Signin() {
+function Signup() {
     const id_ref = React.useRef();
     const name_ref = React.useRef();
     const pw_ref = React.useRef();
+    const file_link_ref = React.useRef(null);
 
     const navigate = useNavigate();
 
@@ -38,10 +39,12 @@ function Signin() {
         );
         console.log(user);
         
-        //const user_doc = await addDoc(collection(어디 콜렉션에 ,어느 doc에 넣을어야), {넣을 데이터} )
+        //const user_doc = await addDoc(collection(어디 콜렉션에 ,어느 doc에 넣을거야), {넣을 데이터} )
         const user_doc = await addDoc(collection(db, "users"), {
-            user_id: id_ref.user.email,
+            user_id: user.user.email,
             name: name_ref.current.value,
+            image_url: file_link_ref.current?.url,
+
         });
         //firebase에 잘 저장되어 있는지 콘솔로 찍어볼 수 ㅇ 이렇게 찍으면 파이어베이스에서 랜덤으로 설정한 고유값이 나옴
         console.log(user_doc.id);
@@ -54,9 +57,9 @@ function Signin() {
 
         <div style={{
             display: 'flex', justifyContent: 'center', alignItems: 'center',
-            width: '100%', height: '100vh', flexDirection: 'column'
+            width: '100%', padding:'50px', flexDirection: 'column'
           }}>
-            <h1><b>회원가입</b></h1>
+            <h1><b>SIGN_UP</b></h1><br/>
             아이디(이메일) <br /> <input ref={id_ref}/><br />
             닉네임 <br /> <input ref={name_ref}/><br />
             비밀번호 <br /> <input ref={pw_ref} /><br />
@@ -75,4 +78,4 @@ function Signin() {
 
 
 
-export default Signin;
+export default Signup;
