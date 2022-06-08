@@ -1,10 +1,42 @@
-import React from 'react'
-import Story from './Story'
-import "./StoryReel.css"
+import React from 'react';
+import { useSelector, useDispatch } from "react-redux";
 
-function StoryReel() {
+import Story from './Story';
+import "./StoryReel.css";
+import { catSlice } from './store';
+
+
+
+const StoryReel =() => {
+    
+//    const text_ref = React.useRef();
+//     const addCat = () => {
+//         console.log(text_ref.current.value);
+//     }
+
+
+
+    // // const dispatch = useDispatch();
+    // //어떤 데이터를 가지고 오고 싶은지 useSelector((스토어가 갖고 있는 전체 데이터 ) => 리턴되는 값)
+    // const data =useSelector( (state) => state );
+    // console.log(data);
+
+    // const addCat = ()=>{
+
+    //     dispatch(catSlice(text_ref.current.value));
+
+    // }
+
+
+
     return (
+        <>
+       <button onClick={addCat}>add</button>
+        <input ref={text_ref}/>
+
         <div className='storyrReel'>
+        
+
             <Story
             image="https://dimg.donga.com/wps/ECONOMY/IMAGE/2019/04/19/95135722.2.jpg"
             profileSrc="https://yt3.ggpht.com/ytc/AKedOLSRp4jc6CkJOCAzqIVCg3Q9LDpbgknA2ipTCxgiOQ=s900-c-k-c0x00ffffff-no-rj"
@@ -23,6 +55,7 @@ function StoryReel() {
             title="cat_쫀떡"/>
 
         </div>
+        </>
     )
 }
 

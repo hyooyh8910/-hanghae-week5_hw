@@ -109,3 +109,18 @@ body {
     width:100%;
     transition:800ms ease all;
   }
+
+  .image {
+    width: 300px;
+    height: 180px;
+    background-position: 50% 50%;
+  
+  }
+
+  .image-label {
+    position: relative;
+    bottom: 22px;
+    left: 5px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}

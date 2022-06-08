@@ -2,11 +2,12 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 
 
-const catSlice = createSlice({
+export const catSlice = createSlice({
     name: "cat",
     initialState: {
         name: "사랑",
         age: 2,
+        id: "dkjflsk",
     }
 })
 
