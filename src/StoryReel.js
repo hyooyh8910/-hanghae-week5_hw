@@ -1,33 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import {createFB, loadFB, loadFbreduxdFB, addFbreduxdFB} from "./redux/modules/fbredux"
 
 import Story from './Story';
 import "./StoryReel.css";
 import { catSlice } from './store';
+import { formControlLabelClasses } from '@mui/material';
 
 
 
 const StoryReel =() => {
-    
-//    const text_ref = React.useRef();
-//     const addCat = () => {
-//         console.log(text_ref.current.value);
-//     }
+    const text_ref = React.useRef();
+    const addCat = () => {
+        console.log(text_ref.current.value);
+    }
+   
 
+    const dispatch = useDispatch();
+    //어떤 데이터를 가지고 오고 싶은지 useSelector((스토어가 갖고 있는 전체 데이터 ) => 리턴되는 값)
+    const data =useSelector( (state) => state );
+    console.log(data);
 
+    const addUserList = ()=>{
+//스프레드 문법. 원본 배열 list에 새로운 요소 추가
+        // dispatch(createFB({text: text.current.value, completed: false}));
+        dispatch(addFbreduxdFB({
+            text: text_ref.current.value, completed: false
+        }))
+    }
 
-    // // const dispatch = useDispatch();
-    // //어떤 데이터를 가지고 오고 싶은지 useSelector((스토어가 갖고 있는 전체 데이터 ) => 리턴되는 값)
-    // const data =useSelector( (state) => state );
-    // console.log(data);
+   
 
-    // const addCat = ()=>{
-
-    //     dispatch(catSlice(text_ref.current.value));
-
-    // }
-
-
+    React.useEffect (() => {
+        dispatch(loadFbreduxdFB());
+    },[]);
 
     return (
         <>

@@ -1,30 +1,30 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+// import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 
 
-export const catSlice = createSlice({
-    name: "cat",
-    initialState: {
-        name: "사랑",
-        age: 2,
-        id: "dkjflsk",
-    }
-})
-
-
-
-
-
-
-
-const store = configureStore({reducer: {
-    cat : catSlice.reducer
-}});
+// export const catSlice = createSlice({
+//     name: "cat",
+//     initialState: {
+//         name: "사랑",
+//         age: 2,
+//         id: "dkjflsk",
+//     }
+// })
 
 
 
 
-export default store;
+
+
+
+// const store = configureStore({reducer: {
+//     cat : catSlice.reducer
+// }});
+
+
+
+
+// // export default store;
 
 
 
